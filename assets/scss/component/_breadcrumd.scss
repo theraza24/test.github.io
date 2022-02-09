@@ -3,33 +3,28 @@
 =================================*/
 
 .breadcrumb-area {
-    background-image: url(../images/about/breadcrunb-bg.webp);
-    background-color: #cad5e1;
+    background-color: #fcf6f6;
     background-repeat: no-repeat;
     background-position: center center;
     border-bottom-width: 0px;
-    height: 406px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 110px;
+    padding-bottom: 117px;
     background-size: cover;
     line-height: 1;
-    @media #{$large-mobile, $tablet-device, $desktop-device} {
-        height: 300px;
+    @media #{$large-mobile,$tablet-device,$desktop-device} {
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
     @media #{$small-mobile} {
-        height: 260px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
     & .breadcrumb-title {
         font-weight: 400;
         text-transform: capitalize;
-        font-size: 60px;
-        color: #000;
+        font-size: 48px;
+        color: #3c3c3c;
         margin: 0;
-        @media #{$tablet-device}{
-			font-size: 42px;
-        }
 		@media #{$large-mobile} {
 			font-size: 36px;
 		}
@@ -41,19 +36,17 @@
         display: inline-block;
         font-size: 18px;
         font-weight: 400;
-        text-transform: uppercase;
+        text-transform: capitalize;
+        color: #3c3c3c;
         margin-top: 14px;
-        @media #{$tablet-device, $large-mobile}{
-			font-size: 16px;
-        }
         a{
-            color: #000;
+            color: #3c3c3c;
             &:hover{
                 color: $theme-color;
             }
         }
         &.active {
-            color: $theme-color;
+            color: #3c3c3c;
         }
     }
 }
@@ -63,7 +56,7 @@
     &::before {
         display: inline-block;
         padding-right: 10px;
-        color: $theme-color;
+        color: #3c3c3c;
         content: "//";
       }
 }

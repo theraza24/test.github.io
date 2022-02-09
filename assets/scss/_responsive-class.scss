@@ -1,23 +1,7 @@
-
-@media #{$desktop-device}{
-    .mb-lg-30px{
-        margin-bottom: 30px;
-    }
-    .ml-lg-30px{
-        margin-left: 30px;
-    }
-    .ml-lg-50px{
-        margin-left: 50px;
-    }
-}
 // Tablet device
 @media #{$tablet-device}{
     .mb-md-30px{
         margin-bottom: 30px;
-
-    }
-    .mb-md-35px{
-        margin-bottom: 35px;
 
     }
     .mt-md-30px{
@@ -36,9 +20,6 @@
 @media #{$large-mobile}{
     .mb-lm-30px{
         margin-bottom: 30px;
-    }
-    .mb-lm-35px{
-        margin-bottom: 35px;
     }
     .mt-lm-50px{
         margin-top: 50px;

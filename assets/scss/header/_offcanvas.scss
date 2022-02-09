@@ -1,7 +1,6 @@
 //Offcanvas menu style
 body.offcanvas-open {
 	overflow: hidden;
-	padding-right: 17px;
 }
 
 .offcanvas {
@@ -112,6 +111,60 @@ body.offcanvas-open {
 				}
 			}
 		}
+		.offcanvas-userpanel {
+			& ul {
+				& li {
+					display: block;
+					background: transparent;
+					width: 100%;
+					text-align: left;
+					display: block;
+					color: $heading-color;
+					cursor: pointer;
+					text-transform: uppercase;
+					&.offcanvas-userpanel__role {
+						& a {
+							color: $heading-color;
+							display: block;
+							padding: 10px 0px;
+							font-size: 14px;
+							font-weight: 600;
+							& i {
+								float: right;
+								font-size: 22px;
+								display: flex;
+								align-self: center;
+								align-items: center;
+								justify-content: center;
+							}
+							&:hover {
+								color: $theme-color;
+							}
+						}
+						& ul {
+							&.user-sub-menu {
+								display: none;
+								& li {
+									& a {
+										display: block;
+										padding: 7px 10px 7px 10px;
+										font-size: 12px;
+										font-weight: 500;
+										color: $heading-color;
+										&:hover {
+											color: $theme-color;
+										}
+										&.current {
+											color: $theme-color;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 		.offcanvas-menu {
 			& ul {
 				& li {
@@ -125,7 +178,7 @@ body.offcanvas-open {
 						color: $body-color;
 						border-top: 1px solid #eee;
 						font-size: 16px;
-						font-weight: 500;
+						font-weight: 600;
 					}
 					.sub-menu {
 						position: static;
@@ -491,7 +544,7 @@ body.offcanvas-open {
 			padding-left: 15px;
 			.title {
 				color: $heading-color;
-				font-weight: 500;
+				font-weight: 400;
 				&:hover {
 					color: $theme-color;
 				}
@@ -528,48 +581,6 @@ body.offcanvas-open {
 			margin-bottom: 0;
 			padding-bottom: 0;
 			border-bottom: 0;
-		}
-	}
-}
-
-
-
-
-.user-panel{
-	padding: 20px 0;
-	border-top: 1px solid #ebebeb;
-	ul{
-		li{
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: center;
-			a{
-				font-size: 14px;
-				color: #3a3a3a;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				line-height: 1;
-				align-items: center;
-				font-weight: 500;
-				&:hover {
-				  color: $theme-color;
-				}
-				i {
-					margin-right: 15px;
-					font-size: 18px;
-					color: #266bf9;
-					width: 20px;
-					height: 20px;
-					display: flex;
-					align-items: center;
-					flex-direction: row;
-				}
-			}
-			&:not(:last-child){
-				margin-bottom: 10px;
-			}
 		}
 	}
 }

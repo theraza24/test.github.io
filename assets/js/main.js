@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
 
@@ -13,7 +13,7 @@
             Background Image             
     -------------------------------------------*/
 
-    $('[data-bg-image]').each(function() {
+    $('[data-bg-image]').each(function () {
         var $this = $(this),
             $image = $this.data('bg-image');
         $this.css('background-image', 'url(' + $image + ')');
@@ -22,7 +22,7 @@
     /*---------------------------
        Menu Fixed On Scroll Active
     ------------------------------ */
-    $(window).on("scroll", function(e) {
+    $(window).on("scroll", function (e) {
         var window_top = $(window).scrollTop() + 1;
         if (window_top > 250) {
             $(".sticky-nav").addClass("menu_fixed animated fadeInDown");
@@ -31,29 +31,50 @@
         }
     });
 
-    /*----------------------------------------
-                Bootstrap dropdown               
-        -------------------------------------------*/
 
-    // Add slideDown animation to Bootstrap dropdown when expanding.
 
-    $('.dropdown').on('show.bs.dropdown', function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    /*-------------------------------
+        Create an toggle
+    ---------------------------------*/
+
+    $('.color a').on('click', function () {
+        $('.sidebar-widget-list a').removeClass('active');
+        $(this).addClass('active');
     });
-    // Add slideUp animation to Bootstrap dropdown when collapsing.
-    $('.dropdown').on('hide.bs.dropdown', function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+
+    $('.size a').on('click', function () {
+        $('.sidebar-widget-list a').removeClass('active-2');
+        $(this).addClass('active-2');
     });
+
+
+    /*-------------------------------
+        Create an toggle
+    ---------------------------------*/
+
+    $('.pro-details-color a').on('click', function () {
+        $('.pro-details-color a').removeClass('active-color');
+        $(this).addClass('active-color');
+    });
+
+    $('.pro-details-size a').on('click', function () {
+        $('.pro-details-size a').removeClass('active-size');
+        $(this).addClass('active-size');
+    });
+
+
+
+
 
     /*---------------------------------
         Off Canvas Function
     -----------------------------------*/
-    (function() {
+    (function () {
         var $offCanvasToggle = $(".offcanvas-toggle"),
             $offCanvas = $(".offcanvas"),
             $offCanvasOverlay = $(".offcanvas-overlay"),
             $mobileMenuToggle = $(".mobile-menu-toggle");
-        $offCanvasToggle.on("click", function(e) {
+        $offCanvasToggle.on("click", function (e) {
             e.preventDefault();
             var $this = $(this),
                 $target = $this.attr("href");
@@ -64,7 +85,7 @@
                 $this.addClass("close");
             }
         });
-        $(".offcanvas-close, .offcanvas-overlay").on("click", function(e) {
+        $(".offcanvas-close, .offcanvas-overlay").on("click", function (e) {
             e.preventDefault();
             $body.removeClass("offcanvas-open");
             $offCanvas.removeClass("offcanvas-open");
@@ -84,7 +105,7 @@
         $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"></span>');
 
         /*Category Sub Menu Toggle*/
-        $offCanvasNav.on("click", "li a, .menu-expand", function(e) {
+        $offCanvasNav.on("click", "li a, .menu-expand", function (e) {
             var $this = $(this);
             if ($this.attr("href") === "#" || $this.hasClass("menu-expand")) {
                 e.preventDefault();
@@ -103,6 +124,38 @@
         });
     }
     mobileOffCanvasMenu();
+
+
+    /*----------------------------------
+     * Offcanvas: User Panel
+     ----------------------------------*/
+    function mobileOffCanvasUserPanel() {
+        var $offCanvasNav = $('.offcanvas-userpanel'),
+            $offCanvasNavSubMenu = $offCanvasNav.find('.user-sub-menu');
+
+        /*Add Toggle Button With Off Canvas Sub Menu*/
+        $offCanvasNavSubMenu.parent().prepend('<span class="offcanvas__user-expand"></span>');
+
+        /*Category Sub Menu Toggle*/
+        $offCanvasNav.on('click', 'li a, .offcanvas__user-expand', function (e) {
+            var $this = $(this);
+            if ($this.attr('href') === '#' || $this.hasClass('offcanvas__user-expand')) {
+                e.preventDefault();
+                if ($this.siblings('ul:visible').length) {
+                    $this.parent('li').removeClass('active');
+                    $this.siblings('ul').slideUp();
+                    $this.parent('li').find('li').removeClass('active');
+                    $this.parent('li').find('ul:visible').slideUp();
+                } else {
+                    $this.parent('li').addClass('active');
+                    $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
+                    $this.closest('li').siblings('li').find('ul:visible').slideUp();
+                    $this.siblings('ul').slideDown();
+                }
+            }
+        });
+    }
+    mobileOffCanvasUserPanel();
 
     /*---------------------
         Hero Slider
@@ -123,118 +176,33 @@
         }
     });
 
-
-
     /*---------------------
         Category Slider
      ---------------------- */
 
-    var categorySlider = new Swiper('.tab-slider.swiper-container', {
+    var categorySlider = new Swiper('.testimonial-wrapper.swiper-container', {
         loop: true,
-        slidesPerView: 6,
+        slidesPerView: 3,
         spaceBetween: 30,
         speed: 1500,
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
         breakpoints: {
             0: {
-                slidesPerView: 2,
+                slidesPerView: 1,
             },
             478: {
-                slidesPerView: 2,
+                slidesPerView: 1,
             },
             576: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            992: {
+                slidesPerView: 2,
+            },
+            1200: {
                 slidesPerView: 3,
-            },
-            768: {
-                slidesPerView: 4,
-            },
-            992: {
-                slidesPerView: 5,
-            },
-            1200: {
-                slidesPerView: 6,
-            },
-        },
-    });
-
-    /*---------------------------
-        Testimonial Slider 
-    ------------------------------ */
-
-    var testiSlider = new Swiper('.content-top', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        speed: 1500,
-        loop: true,
-
-        // Navigation arrows
-
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            478: {
-                slidesPerView: 1,
-            },
-            576: {
-                slidesPerView: 1,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            992: {
-                slidesPerView: 2,
-            },
-            1200: {
-                slidesPerView: 2,
-            },
-        },
-    });
-
-    /*-------------------------------
-        Feature Product Slider
-     -------------------------------- */
-
-    var productSlider = new Swiper('.feature-product-slider.swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        speed: 1500,
-        loop: true,
-
-        // Navigation arrows
-
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            478: {
-                slidesPerView: 1,
-            },
-            576: {
-                slidesPerView: 1,
-            },
-            768: {
-                slidesPerView: 1,
-            },
-            992: {
-                slidesPerView: 2,
-            },
-            1200: {
-                slidesPerView: 2,
             },
         },
     });
@@ -261,13 +229,13 @@
                 slidesPerView: 1,
             },
             478: {
-                slidesPerView: 1,
+                slidesPerView: 2,
             },
             576: {
                 slidesPerView: 2,
             },
             768: {
-                slidesPerView: 2,
+                slidesPerView: 3,
             },
             992: {
                 slidesPerView: 3,
@@ -283,17 +251,14 @@
     ------------------------------ */
     var galleryThumb = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
-        slidesPerView: 3,
+        slidesPerView: 4,
         freeMode: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
-        centerMood:true,
     });
     var galleryTop = new Swiper('.gallery-top', {
         spaceBetween: 0,
         loop: true,
-        slidesPerView: 1,
-        centerMood:true,
         thumbs: {
             swiper: galleryThumb
         }
@@ -303,36 +268,26 @@
         Product Details Slider 
     ------------------------------ */
     var zoomThumb = new Swiper('.zoom-thumbs', {
-        spaceBetween: 18,
-        slidesPerView: 3,
+        spaceBetween: 10,
+        slidesPerView: 4,
         freeMode: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
-        // Navigation arrows
-
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
     });
     var zoomTop = new Swiper('.zoom-top', {
         spaceBetween: 0,
         slidesPerView: 1,
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true,
-        },
         thumbs: {
             swiper: zoomThumb
         }
     });
 
     /*---------------------------
-            Product Details Slider 
-        ------------------------------ */
+        Product Details Slider 
+    ------------------------------ */
     var zoomThumb = new Swiper('.zoom-thumbs-2', {
-        spaceBetween: 20,
-        slidesPerView: 5,
+        spaceBetween: 0,
+        slidesPerView: 4,
         direction: 'vertical',
         freeMode: true,
         watchSlidesVisibility: true,
@@ -346,30 +301,6 @@
         }
     });
 
-    /*---------------------------
-        Quick view Slider 
-    ------------------------------ */
-    var galleryThumb = new Swiper('.gallery-thumbs', {
-        spaceBetween: 10,
-        slidesPerView: 3,
-        freeMode: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        // Navigation arrows
-
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-    var galleryTop = new Swiper('.gallery-top', {
-        spaceBetween: 0,
-        loop: true,
-        thumbs: {
-            swiper: galleryThumb
-        }
-    });
-
 
 
     /*----------------------------
@@ -378,7 +309,7 @@
     var CartPlusMinus = $(".cart-plus-minus");
     CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
     CartPlusMinus.append('<div class="inc qtybutton">+</div>');
-    $(".qtybutton").on("click", function() {
+    $(".qtybutton").on("click", function () {
         var $button = $(this);
         var oldValue = $button.parent().find("input").val();
         if ($button.text() === "+") {
@@ -435,11 +366,11 @@
     /*-------------------------------
         Create an account toggle
     ---------------------------------*/
-    $(".checkout-toggle2").on("click", function() {
+    $(".checkout-toggle2").on("click", function () {
         $(".open-toggle2").slideToggle(1000);
     });
 
-    $(".checkout-toggle").on("click", function() {
+    $(".checkout-toggle").on("click", function () {
         $(".open-toggle").slideToggle(1000);
     });
 
@@ -456,11 +387,11 @@
     /*---------------------
         Countdown
     --------------------- */
-    $("[data-countdown]").each(function() {
+    $("[data-countdown]").each(function () {
         var $this = $(this),
             finalDate = $(this).data("countdown");
-        $this.countdown(finalDate, function(event) {
-            $this.html(event.strftime('<span class="cdown hour"><span class="cdown-1">%-H</span><p>Hrs</p></span> <span class="cdown minutes"><span class="cdown-1">%M</span> <p>Min</p></span> <span class="cdown second"><span class="cdown-1"> %S</span> <p>Sec</p></span>'));
+        $this.countdown(finalDate, function (event) {
+            $this.html(event.strftime('<span class="cdown day"><span class="cdown-1">%-D</span><p>Days</p></span> <span class="cdown hour"><span class="cdown-1">%-H</span><p>Hours</p></span> <span class="cdown minutes"><span class="cdown-1">%M</span> <p>Mins</p></span> <span class="cdown second"><span class="cdown-1"> %S</span> <p>Sec</p></span>'));
         });
     });
 
@@ -485,7 +416,7 @@
             Brand Logo
       ------------------------------ */
     var companyLogoSlider = new Swiper('.brand-slider.swiper-container', {
-        slidesPerView: 4,
+        slidesPerView: 5,
         speed: 1500,
         loop: true,
         autoplay: {
@@ -495,22 +426,35 @@
         breakpoints: {
 
             0: {
-                slidesPerView: 1,
+                slidesPerView: 2,
             },
             480: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            992: {
                 slidesPerView: 3,
             },
-            1200: {
+            768: {
+                slidesPerView: 3,
+            },
+            992: {
                 slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
             },
         }
     });
+
+    /*---------------------------
+          Nice Select 
+       ------------------------------ */
+
+    $('.shop-sort').niceSelect();
+
+    /*-------------------------------
+      Product Gallery - Image Zoom
+     --------------------------------*/
+
+    $('.zoom-image-hover').zoom();
+
 
     /*---------------------
         venobox

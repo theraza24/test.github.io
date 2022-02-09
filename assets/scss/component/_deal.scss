@@ -6,9 +6,6 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	&.ptb-80px {
-		padding: 66px 0 80px;
-	}
 }
 
 .deal-bg-2 {
@@ -21,134 +18,120 @@
 .deal-image {
 	position: absolute;
 	left: auto;
-	right: 168px;
-	bottom: 28px;
+	right: 80px;
+	bottom: 0;
 	@media #{$desktop-device} {
-		right: 100px;
-		bottom: 0px;
+		right: 15px;
 	}
 	@media #{$tablet-device} {
 		right: 0px;
 		width: 50%;
-		bottom: 0px;
 	}
 	@media #{$large-mobile} {
 		margin: auto;
+		width: 95%;
 		position: initial;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.discount {
-		width: 103px;
-		height: 103px;
-		color: #fff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: $theme-color;
-		border-radius: 50%;
-		position: absolute;
-		bottom: 60px;
-		right: -30px;
-		@media #{$tablet-device} {
-			right: 30px;
-		}
-		@media  #{$large-mobile} {
-			bottom: 145px;
-			right: auto;
-			left: 68%;
-		}
-		h3{
-			color:$white;
-			font-weight: 500;
-		}
 	}
 }
 .deal-wrapper {
 	width: 50%;
-	padding-left: 90px;
-	line-height: 1;
+	text-align: center;
 	@media #{$desktop-device} {
 		width: 40%;
 	}
 	@media #{$tablet-device} {
 		width: 50%;
-		padding-left: 40px;
 	}
 	@media #{$large-mobile} {
 		margin: auto;
 		width: 100%;
 		margin: 0 0 50px;
 	}
-	@media #{$extra-small-mobile} {
-		padding-left: 30px;
+	.category {
+		font-size: 16px;
+		font-weight: 600;
+		display: block;
+		margin: 0 0 12px;
+		color: $theme-color;
 	}
 	.title {
 		font-size: 36px;
-		color: #424242;
-		font-weight: 500;
+		color: #464444;
+		font-weight: 700;
 		margin: 0;
-		line-height: 55px;
-		@media #{$desktop-device, $tablet-device} {
-			font-size: 26px;
-			line-height: 40px;
-		}
-		@media #{$small-mobile}{
-			font-size: 30px;
-			line-height: 45px;
-		}
-		@media #{$extra-small-mobile}{
+		@media #{$tablet-device} {
 			font-size: 24px;
-			line-height: 36px;
 		}
 	}
-
-	& .price {
-		font-size: 30px;
-		font-weight: 500;
-		margin-bottom: 55px;
-		margin-top: 22px;
-		color: #4a4a4a;
-		display: block;
-		@media #{$small-mobile}{
-			font-size: 24px;
-			margin-top: 15px;
-			margin-bottom: 40px;
-		}
-		@media #{$extra-small-mobile}{
-			font-size: 20px;
-			margin-top: 10px;
-			margin-bottom: 30px;
-		}
-		& .new {
-			color: $theme-color;
-		}
-		@media #{$desktop-device} {
-			font-size: 24px;
-			margin-bottom: 40px;
-			margin-top: 15px;
-		}
+	.deal-timing {
+		margin: 21px 0 32px 0;
 		@media #{$tablet-device} {
-			font-size: 20px;
-			margin-bottom: 40px;
-			margin-top: 20px;
+			margin: 15px 0 25px 0;
 		}
 		@media #{$large-mobile} {
+		}
+		& span {
+			&.cdown {
+				display: inline-block;
+				margin-right: 25px;
+				background: inherit;
+				font-size: 36px;
+				font-weight: 800;
+				line-height: 1;
+				color: #303030;
+				width: 60px;
+				height: 40px;
+				padding-top: 0;
+				text-align: center;
+				position: relative;
+				@media #{$tablet-device,
+					$large-mobile
+					   } {
+					font-size: 24px;
+				}
+				@media #{$small-mobile} {
+				}
+				&:last-child {
+					margin-right: 0;
+					&::after {
+						display: none;
+					}
+				}
+				&::after {
+					position: absolute;
+					top: 0;
+					right: -20px;
+					color: #303030;
+					content: ":";
+					font-size: 36px;
+					@media #{$tablet-device,
+						$large-mobile
+						   } {
+						font-size: 24px;
+					}
+				}
+			}
+		}
+		& span {
+			display: inline-block;
+			p {
+				font-size: 14px;
+				text-transform: uppercase;
+				color: #303030;
+				font-weight: 600;
+				margin: 12px 0 0;
+			}
 		}
 	}
 
 	a {
 		&.btn-primary {
-			width: 140px;
-			height: 40px;
-			font-size: 14px;
-			text-transform: uppercase;
-			font-weight: 400;
 			@media #{$tablet-device,
 				$large-mobile
 				   } {
+				width: 150px;
+				height: 50px;
+				font-size: 14px;
 			}
 		}
 	}

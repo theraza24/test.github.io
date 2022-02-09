@@ -1,64 +1,30 @@
 /* feature section style*/
 
-.feature-area {
+.feature-area{
 	position: relative;
 	z-index: 1;
-}
-.feature-wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-	border: 2px solid #e1e1e1;
-	padding: 100px 55px;
-	border-radius: 20px;
-	z-index: 1;
-	@media #{$desktop-device} {
-		padding: 80px 25px;
-	}
-	@media #{$tablet-device} {
-		padding: 60px 25px;
-
-	}
-	@media #{$large-mobile} {
-		padding: 60px 25px;
-
-	}
-	@media #{$extra-small-mobile} {
-		padding: 50px 15px;
-	}
-	& .single-feture-col {
-		padding-right: 15px;
-		padding-left: 15px;
-		flex: 0 0 auto;
-		width: 33.3333333333%;
-		@media #{$laptop-device, $desktop-device} {
-			flex: 0 0 auto;
-			width: 33.3333333333%;
-		}
+	&.mt-n-65px{
+		margin-top: -65px;
 		@media #{$tablet-device} {
-			flex: 0 0 auto;
-			width: 50%;
+			margin-top: 65px;
 		}
 		@media #{$large-mobile} {
-			flex-shrink: 0;
-			width: 100%;
-			max-width: 100%;
-		}
-		@media #{$extra-small-mobile} {
-			padding: 0;
+			margin-top: 65px;
 		}
 	}
 }
 .single-feature {
+	padding: 30px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	border: 1px solid #e8e8e8;
 	background-color: $white;
 	@media #{$desktop-device} {
+		padding: 20px;
 	}
-	@media #{$tablet-device} {
-	}
-	@media #{$extra-small-mobile} {
+	@media #{$tablet-device, $extra-small-mobile} {
+		padding: 25px;
 	}
 	.feature-icon {
 		width: 70px;
@@ -67,10 +33,14 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		background: linear-gradient(
+			-155deg,
+			rgba(253, 61, 107, 1) 0%,
+			rgba(253, 120, 99, 1) 98%,
+			rgb(243, 223, 224) 100%
+		);
 		border-radius: 50%;
 		margin-right: 30px;
-		background-color: $theme-color;
-
 		@media #{$desktop-device, $extra-small-mobile} {
 			margin-right: 20px;
 		}
@@ -82,18 +52,18 @@
 		}
 		.title {
 			font-size: 24px;
-			color: #000;
+			color: #2e2e2e;
 			font-weight: 600;
-			margin: 0 0 3px;
-			@media #{$desktop-device, $tablet-device, $extra-small-mobile} {
+            margin: 0 0 3px;
+			@media #{$desktop-device, $extra-small-mobile} {
 				font-size: 20px;
 			}
 		}
 		.sub-title {
 			font-size: 16px;
-			color: #000000;
+			color: #848484;
 			font-weight: 400;
-			@media #{$desktop-device, $tablet-device, $extra-small-mobile} {
+			@media #{$desktop-device, $extra-small-mobile} {
 				font-size: 14px;
 			}
 		}
@@ -103,7 +73,7 @@
 	}
 	&:hover {
 		& img {
-			transform: scale(0.9) rotate(3deg);
+			transform: scale(.9) rotate(3deg);
 		}
 	}
 }

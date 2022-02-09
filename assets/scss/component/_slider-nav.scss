@@ -25,18 +25,11 @@
     font-variant: initial;
     line-height: 1;
     outline: 0;
-    @media #{$small-mobile}{
-        font-size: 24px;
-    }
 }
 
 .slider-nav-style-1.small-nav .swiper-button-next:after,
 .slider-nav-style-1.small-nav .swiper-button-prev:after {
     font-size: 30px;
-}
-.small-nav.slider-nav-style-1.small-nav .swiper-button-next:after,
-.small-nav.slider-nav-style-1.small-nav .swiper-button-prev:after {
-    font-size: 24px;
 }
 
 .slider-nav-style-1 .swiper-buttons .swiper-button-next,
@@ -57,31 +50,23 @@
     box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, .06);
     color: $heading-color;
     background-color: #fff;
-    @media #{$small-mobile}{
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-    }
     &:hover {
         background-color: $theme-color;
         color: #fff;
+        box-shadow: 0 5px 15px 0 rgb(153 63 107 / 50%);
     }
 }
 
 .slider-nav-style-1.small-nav .swiper-buttons .swiper-button-next,
 .slider-nav-style-1.small-nav .swiper-buttons .swiper-button-prev {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #4a4a4a;
-    color: #fff;
-    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
     &:hover {
         background-color: $theme-color;
         color: #fff;
     }
 }
-
 
 .slider-nav-style-1 {
     & .swiper-button-prev {
@@ -96,7 +81,7 @@
         & .swiper-button-prev {
             outline: 0;
             right: auto;
-            left: -20px;
+            left: 10px;
             @media #{$large-mobile}{
                 left: 5px;
             }
@@ -117,7 +102,7 @@
         & .swiper-button-next {
             outline: 0;
             left: auto;
-            right: -20px;
+            right: 10px;
             @media #{$large-mobile}{
                 right: 5px;
             }
@@ -133,28 +118,16 @@
 
 .slider-nav-style-1:hover .swiper-button-next {
     right: 50px;
-    @media #{$large-mobile}{
-        right: 20px;
-    }
-    @media #{$small-mobile}{
-        right: 10px;
-    }
 }
 
 .slider-nav-style-1:hover .swiper-button-prev {
     left: 50px;
-    @media #{$large-mobile}{
-        left: 20px;
-    }
-    @media #{$small-mobile}{
-        left: 10px;
-    }
 }
 
 .slider-nav-style-1.small-nav:hover .swiper-button-next {
-    right: 0px;
+    right: 20px;
 }
 
 .slider-nav-style-1.small-nav:hover .swiper-button-prev {
-    left: 0px;
+    left: 20px;
 }

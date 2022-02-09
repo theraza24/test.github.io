@@ -1,69 +1,102 @@
-// Testimonial slider style 
-
-.trstimonial-area{
-	background-color: #f2f8fd;
-	padding-bottom: 80px;
-	@media #{$desktop-device}{
-		padding-bottom: 60px;
-	}
-	@media #{$tablet-device}{
-		padding-bottom: 40px;
-	}
-	@media #{$large-mobile}{
-		padding-bottom: 40px;
-	}
-}
-.content-top{
-	padding-top: 60px;
-	padding-bottom: 20px;
-	.testi-inner{
-		.testi-content{
-			p{
-				font-size: 20px;
-				color: #000000;
-				font-style: italic;
-				line-height: 36px;
-				@media #{$large-mobile}{
-					font-size: 18px;
-					line-height: 32px;
-				}
-			}
-			position: relative;
-			padding-left: 30px;
-			&::after{
-				position: absolute;
-				top: -2px;
-				left: 0;
-				width: 62px;
-				height: 44px;
-				content: "";
-				background-image: url(../images/testimonial/quote-shape.png);
-				background-repeat: no-repeat;
-				background-position: left top;
-			}
-		}
-		.testi-author{
-			display: flex;
-			align-items: center;
-			margin-left: 30px;
-			margin-top: 35px;
-			.name{
-				color: $theme-color;
-				font-size: 18px;
-				line-height: 1;
-				margin:0;
-				font-weight: 600;
-				padding-left: 30px;
-				span{
-					display:block;
-					font-size: 16px;
-					font-weight: 400;
-					color: #444141;
-					margin: 10px 0 0;
-				}
-			}
+/* Testimonial Section style */
+.testimonial-area {
+	&.pb-40px {
+		@media #{$tablet-device, $large-mobile} {
+			padding-bottom: 0px;
 		}
 	}
 }
-
-
+.testimonial-wrapper {
+	.swiper-wrapper {
+		padding: 60px 0px;
+		@media #{$large-mobile} {
+			padding-top: 40px;
+		}
+		.swiper-slide {
+			.testi-inner {
+				padding: 60px 40px;
+				box-shadow: 0px 30px 64px 0px rgba(0, 0, 0, 0.05);
+				@media #{$tablet-device ,$extra-small-mobile} {
+					padding: 50px 30px;
+				}
+				&::after {
+					position: absolute;
+					top: auto;
+					left: auto;
+					right: 22px;
+					bottom: 22px;
+					content: "";
+					background-image: url(../images/testimonial-image/quate-2.png);
+					background-repeat: no-repeat;
+					background-position: bottom right;
+					width: 49px;
+					height: 35px;
+				}
+				.reating-wrap {
+					line-height: 1;
+					margin: 0 0 20px;
+					i {
+						color: #ffde00;
+						font-size: 14px;
+						margin-right: 5px;
+					}
+				}
+				.testi-content {
+					p {
+						font-size: 18px;
+						line-height: 30px;
+						color: #818790;
+						font-style: italic;
+						@media #{$tablet-device ,$extra-small-mobile} {
+							font-size: 16px;
+							line-height: 28px;
+						}
+					}
+				}
+				.testi-author {
+					line-height: 1;
+					margin: 40px 0 0;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					.author-img {
+						position: relative;
+						&::after {
+							position: absolute;
+							top: -5px;
+							left: auto;
+							right: -5px;
+							height: 22px;
+							width: 22px;
+							content: "";
+							background-image: url(../images/testimonial-image/quate-1.png);
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							background-color: $theme-color;
+							border-radius: 50%;
+							background-repeat: no-repeat;
+							background-position: center;
+						}
+						img {
+						}
+					}
+					.author-name {
+						margin-left: 25px;
+						.name {
+							color: #39393a;
+							font-size: 18px;
+							margin: 0 0 3px;
+						}
+						.title {
+							color: #576477;
+							font-size: 14px;
+							font-weight: 300;
+						}
+					}
+				}
+			}
+		}
+	}
+}
